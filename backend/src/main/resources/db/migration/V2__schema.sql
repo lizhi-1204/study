@@ -53,8 +53,7 @@ CREATE TABLE IF NOT EXISTS `credit_project` (
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `idx_credit_parent_enabled` (`parent_user_id`, `enabled`),
-  CONSTRAINT `fk_cp_credit_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `chk_credit_points_value_positive` CHECK (`points_value` > 0)
+  CONSTRAINT `fk_cp_credit_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `debit_project` (
@@ -67,8 +66,7 @@ CREATE TABLE IF NOT EXISTS `debit_project` (
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `idx_debit_parent_enabled` (`parent_user_id`, `enabled`),
-  CONSTRAINT `fk_dp_debit_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `chk_debit_points_value_positive` CHECK (`points_value` > 0)
+  CONSTRAINT `fk_dp_debit_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `prize` (
@@ -83,9 +81,7 @@ CREATE TABLE IF NOT EXISTS `prize` (
   PRIMARY KEY (`id`),
   KEY `idx_prize_parent` (`parent_user_id`),
   KEY `idx_prize_parent_lottery` (`parent_user_id`, `lottery_enabled`),
-  CONSTRAINT `fk_prize_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `chk_prize_exchange_required_points_non_negative` CHECK (`exchange_required_points` IS NULL OR `exchange_required_points` >= 0),
-  CONSTRAINT `chk_prize_lottery_weight_positive` CHECK (`lottery_weight` IS NULL OR `lottery_weight` > 0)
+  CONSTRAINT `fk_prize_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `lottery_config` (
@@ -96,8 +92,7 @@ CREATE TABLE IF NOT EXISTS `lottery_config` (
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_lottery_config_parent` (`parent_user_id`),
-  CONSTRAINT `fk_lottery_config_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `chk_lottery_cost_points_positive` CHECK (`cost_points` > 0)
+  CONSTRAINT `fk_lottery_config_parent` FOREIGN KEY (`parent_user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `child_check_in_request` (

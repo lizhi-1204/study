@@ -8,7 +8,7 @@ spring:
     password: CtD9mb4u
     driver-class-name: com.mysql.cj.jdbc.Driver
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration
     baseline-on-migrate: true
   jackson:
