@@ -13,10 +13,10 @@
 1. 新建服务（或环境）
 2. 选择“容器服务 / Docker”
 3. 选择“构建镜像”
-4. Dockerfile 路径选择：`Dockerfile`（位于构建上下文的根目录）
-5. 构建上下文（Build context）建议选择：`backend/`
+4. Dockerfile：选择仓库根目录的 `Dockerfile`
+5. 构建上下文（Build context）：建议选择仓库根目录（这样就能 `COPY backend/*`）
 
-> 若云托管只允许“固定上下文”，则需要把 `backend/Dockerfile` 复制/移动到该上下文根目录，或改用对应的构建方式。
+> 说明：我已在项目根目录新增了 `Dockerfile`，用于云托管自动构建（从 `backend/` 里复制源码）。
 
 ## 3. 配置环境变量
 在云托管容器配置里设置以下环境变量（按你的实际值填写）：
