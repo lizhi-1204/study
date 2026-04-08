@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: false
+  jackson:
+    time-zone: Asia/Shanghai
+
+logging:
+  level:
+    root: INFO
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change_me}
+    expireSeconds: ${JWT_EXPIRE_SECONDS:7200}
+
