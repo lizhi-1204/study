@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://sh-cynosdbmysql-grp-kmxoc9is.sql.tencentcdb.com:20982/study?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false}
-    username: ${SPRING_DATASOURCE_USERNAME:root}
-    password: ${SPRING_DATASOURCE_PASSWORD:CtD9mb4u}
+    url: jdbc:mysql://sh-cynosdbmysql-grp-kmxoc9is.sql.tencentcdb.com:20982/study?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: CtD9mb4u
     driver-class-name: com.mysql.cj.jdbc.Driver
   flyway:
     enabled: true
