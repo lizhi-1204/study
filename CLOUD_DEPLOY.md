@@ -24,6 +24,7 @@
   - 格式示例：`jdbc:mysql://sh-cynosdbmysql-grp-kmxoc9is.sql.tencentcdb.com:20982/study?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false`
 - `SPRING_DATASOURCE_USERNAME`：`root`
 - `SPRING_DATASOURCE_PASSWORD`：你的数据库密码
+- `SPRING_PROFILES_ACTIVE`：`prod`
 - `JWT_SECRET`：用于 JWT 签名的密钥
 - `TZ`：`Asia/Shanghai`
 
